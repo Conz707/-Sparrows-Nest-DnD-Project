@@ -13,10 +13,10 @@
     <title>Sparrow's Nest</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
 
 </head>
 <body>
@@ -64,11 +64,12 @@
             <div class="container-fluid">
                 <h1>Monster Generator</h1>
                 <p>This page allows you to generate a random monster from the DnD monster manual.</p>
-                <p>Fill in any of the text boxes below for monster generator parameters, or click generate for a fully random creature.</p>
-                <p>Challenge Rating (CR):
-                    <asp:TextBox ID="txtChallengeRating" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp; </p>
-                <p>Monster Type:
+                <p>Search:
+                    <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+                </p>
+                <p>Challenge Rating (CR):&nbsp;
+                    <asp:TextBox ID="txtChallengeRating" runat="server" onkeypress="return numberInputOnly(event);"></asp:TextBox>
+&nbsp;&nbsp;&nbsp; Monster Type:
                     <asp:DropDownList ID="txtType" runat="server">
                         <asp:ListItem></asp:ListItem>
                         <asp:ListItem>Aberration</asp:ListItem>
@@ -86,7 +87,7 @@
                         <asp:ListItem>Plant</asp:ListItem>
                         <asp:ListItem>Undead</asp:ListItem>
                     </asp:DropDownList>
-                </p>
+                &nbsp; </p>
                 <p>
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Generate" Width="246px" />
                 </p>
@@ -102,8 +103,11 @@
     <!-- /#wrapper -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
 
     <!-- Menu Toggle Script -->
     <script>
@@ -114,6 +118,6 @@
     </script>
 
     </form>
-
+        <script src="JavaScriptFunctions.js"></script>
 </body>
 </html>

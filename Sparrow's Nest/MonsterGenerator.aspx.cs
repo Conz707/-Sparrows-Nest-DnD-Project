@@ -8,6 +8,7 @@ using System.Net;
 using System.Web.Script.Serialization;
 using Sparrows_Nest.helpers;
 using System.Reflection;
+using System.Windows;
 
 namespace Sparrows_Nest
 {
@@ -35,48 +36,87 @@ namespace Sparrows_Nest
                 List<Monster> listMonster = js.Deserialize<List<Monster>>(json);
 
 
+                string search = txtSearch.Text.ToLower();
+
                 foreach (var m in listMonster)
                 {
 
+                    if (search == "" && txtChallengeRating.Text != "" && txtType.SelectedValue == "")           //ftf
+                    {
+                        if (m.challenge_rating == txtChallengeRating.Text)
+                        {
+                            ListBox1.Items.Add(m.name);
+                        }
+                    }
+                    else if (search == "" && txtChallengeRating.Text == "" && txtType.SelectedValue != "")      // fft                  // ttt ttf tff fff
+                    {                                                                                                                   //tft ftf
+                        if (m.type == txtType.SelectedValue.ToLower())
+                        {
+                            ListBox1.Items.Add(m.name);
+                        }
+                    }
+                    else if (search == "" && txtChallengeRating.Text != "" && txtType.SelectedValue != "")       //ftt
+                    {
+                        if (m.type == txtType.SelectedValue.ToLower() && m.challenge_rating == txtChallengeRating.Text)
+                        {
+                            ListBox1.Items.Add(m.name);
+                        }
+                    }
+                    else if (search != "" && txtChallengeRating.Text != "" && txtType.SelectedValue != "")      //ttt
+                    {
+                        if (m.type == txtType.SelectedValue.ToLower() && m.challenge_rating == txtChallengeRating.Text && m.name.ToLower().Contains(search))
+                        {
+                            ListBox1.Items.Add(m.name);
+                        }
+                    }
+                    else if (search != "" && txtChallengeRating.Text != "" && txtType.SelectedValue == "")      //ttf
+                    {
+                        {
+                            if (m.challenge_rating == txtChallengeRating.Text && m.name.ToLower().Contains(search))
+                            {
+                                ListBox1.Items.Add(m.name);
+                            }
+                        }
+                    }
+                    else if (search != "" && txtChallengeRating.Text == "" && txtType.SelectedValue != "")      //tft
+                    {
+                        {
+                            if (m.type == txtType.SelectedValue.ToLower() && m.name.ToLower().Contains(search))
+                            {
+                                ListBox1.Items.Add(m.name);
+                            }
+                        }
+                    }
+                    else if (search != "" && txtChallengeRating.Text == "" && txtType.SelectedValue == "")      //tff
+                    {
+                        if (m.name.ToLower().Contains(search))
+                        {
+                            ListBox1.Items.Add(m.name);
+                        }
+                    }
 
-                    if (txtChallengeRating.Text != "" && txtType.SelectedValue == "")
-                    {
-                        if(m.challenge_rating == txtChallengeRating.Text)
-                        {
-                            ListBox1.Items.Add(m.name);
-                        }
-                    }
-                    else if (txtChallengeRating.Text == "" && txtType.SelectedValue != "")
-                    {
-                        if(m.type == txtType.SelectedValue.ToLower())
-                        {
-                            ListBox1.Items.Add(m.name);
-                        }
-                    }
-                    else if (txtChallengeRating.Text != "" && txtType.SelectedValue != "")
-                    {
-                        if(m.type == txtType.SelectedValue.ToLower() && m.challenge_rating == txtChallengeRating.Text)
-                        {
-                            ListBox1.Items.Add(m.name);
-                        }
-                    }
-                  else
+                    else
                     {
                         ListBox1.Items.Add(m.name);
                     }
                 }
-                
-
             }
+            
             catch (Exception)
             {
                 System.Diagnostics.Debug.WriteLine("Error instanciating json variable");
 
                 throw;
             }
+            
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
         }
