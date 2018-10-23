@@ -67,12 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MonsterGenerator.aspx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="helpers\jsonHelper.cs" />
     <Compile Include="helpers\Monster.cs" />
+    <Compile Include="MonsterGenerator.aspx.cs">
+      <DependentUpon>MonsterGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MonsterGenerator.aspx.designer.cs">
+      <DependentUpon>MonsterGenerator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -84,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\SparrowsNest - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\SparrowsNest - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
