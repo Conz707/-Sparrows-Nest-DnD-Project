@@ -49,10 +49,7 @@ namespace Sparrows_Nest
         protected void lstBoxMonsters_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
-            {
-
-
+      
                 //aLWAYS returns index '0'
 
                 System.Diagnostics.Debug.WriteLine("asd");
@@ -61,7 +58,7 @@ namespace Sparrows_Nest
                 System.Diagnostics.Debug.WriteLine(lstBoxMonsters.SelectedIndex);
                 System.Diagnostics.Debug.WriteLine(mList[lstBoxMonsters.SelectedIndex + 2].name);
                 displayMonsterInfo();
-            }
+         
 
 
         }
