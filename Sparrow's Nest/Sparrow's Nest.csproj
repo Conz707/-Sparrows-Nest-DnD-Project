@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="JavaScriptFunctions.js" />
+    <Content Include="media\dnd.png" />
     <Content Include="MonsterGenerator.aspx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
@@ -102,6 +103,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="node_modules\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -117,7 +121,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65269</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:65269/</IISUrl>
+          <IISUrl>http://localhost:8080/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

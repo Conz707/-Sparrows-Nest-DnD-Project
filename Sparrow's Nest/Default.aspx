@@ -20,6 +20,8 @@
 
 <body>
 
+    <form id="form1" runat="server">
+
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -59,7 +61,9 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h1>Sparrow's Nest</h1>
+                <h1>
+                    <asp:Image ID="logoTest" runat="server" ImageUrl="~/media/dnd.png" Width="250px"  />
+                    Sparrow's Nest</h1>
                 <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                 <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
                 &nbsp;&nbsp;&nbsp;
@@ -83,6 +87,8 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+
+    </form>
 
 </body>
 

@@ -62,8 +62,14 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h1>Monster Generator</h1>
-                <p>This page allows you to generate a random monster from the DnD monster manual.</p>
+                <h1>
+                    <asp:Image ID="logoTest" runat="server" ImageUrl="~/media/dnd.png" Width="250px"  />
+                    Monster Generator<asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+                </h1>               
+
+                <p style="float:left">This page allows you to generate a random monster from the DnD monster manual.    
+                <p>&nbsp;</p>
                 <p>Search:
                     <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
                 </p>
@@ -91,33 +97,41 @@
                 <p>
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Generate" Width="246px" />
                 </p>
-                <p>
-                    <asp:ListBox ID="ListBox1" runat="server" Height="204px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" Width="402px"></asp:ListBox>
-                </p>
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div style="float:left; margin-right: 30px;">
+                        <asp:ListBox ID="lstBoxMonsters" runat="server" AutoPostBack="True" Height="185px" OnSelectedIndexChanged="lstBoxMonsters_SelectedIndexChanged" Width="386px"></asp:ListBox>
+                        </div>
+                            <div style="float:left;" width: 462px; height: 214px; margin-left: 30px">
+                                &nbsp;<asp:Label ID="Label2" runat="server" Text="Monster Name:" Width="130px" style="text-align:right"></asp:Label>
+                                <asp:TextBox ID="txtMonsterName" runat="server" ReadOnly="True" Enabled="False" style="margin-left: 10px" Width="150px"></asp:TextBox>
+                            <br />
+                                &nbsp;<asp:Label ID="Label3" runat="server" Text="Monster Type:" Width="130px" style="text-align:right"></asp:Label>
+                                <asp:TextBox ID="txtMonsterType" runat="server" Width="150px" Enabled="False" OnTextChanged="txtMonsterType_TextChanged" style="margin-left: 10px"></asp:TextBox>
+                            <br />
+                                <asp:Label ID="Label4" runat="server" Text="Alignment:" Width="130px" style="text-align:right"></asp:Label>
+                                <asp:TextBox ID="txtMonsterAlignment" runat="server" Width="150px" Enabled="False" style="margin-left: 10px"></asp:TextBox>
+                            <br />
+                                <asp:Label ID="Label5" runat="server" Text="Challenge Rating:" Width="130px" style="text-align:right"></asp:Label>
+                                <asp:TextBox ID="txtMonsterChallengeRating" runat="server" Width="42px" Enabled="False" style="margin-left: 10px"></asp:TextBox>
+                            <br />
+                                <asp:Label ID="Label6" runat="server" Text="Hit Points:" Width="130px" style="text-align:right"></asp:Label>
+                                <asp:TextBox ID="txtMonsterHitPoints" runat="server" Width="43px" Enabled="False" style="margin-left: 10px"></asp:TextBox>
+                                <br />
+                                <asp:Label ID="Label7" runat="server" Text="Hit Dice:" Width="130px" style="text-align:right"></asp:Label>
+                                <asp:TextBox ID="txtMonsterHitDice" runat="server" Width="108px" Enabled="False" style="margin-left: 10px"></asp:TextBox>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                    
+                    </div>
+            <div><a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a></div>
 
-    </div>
-    <!-- /#wrapper -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
-    </form>
+                </form>
         <script src="JavaScriptFunctions.js"></script>
+
+
+
 </body>
 </html>

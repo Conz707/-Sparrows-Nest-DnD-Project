@@ -7,6 +7,8 @@ namespace Sparrows_Nest.helpers
 {
     public class Monster
     {
+
+
         public string name { get; set; } = "";
         public string size { get; set; } = "";
         public string type { get; set; } = "";
@@ -39,7 +41,6 @@ namespace Sparrows_Nest.helpers
         public string actions { get; set; } = "";
         public string legendary_actions { get; set; } = "";
         */
+
     }
-
-
 }
